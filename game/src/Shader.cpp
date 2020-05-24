@@ -59,9 +59,9 @@ ShaderProgramSource Shader::ParseShader(const std::string& filepath)
 
 unsigned int Shader::CreateShader(const std::string& vertexShader, const std::string& fragmentShader)
 {
-    unsigned int program = glCreateProgram();
-    unsigned int vs = CompileShader(GL_VERTEX_SHADER, vertexShader);
-    unsigned int fs = CompileShader(GL_FRAGMENT_SHADER, fragmentShader);
+    GLCall(unsigned int program = glCreateProgram());
+    GLCall(unsigned int vs = CompileShader(GL_VERTEX_SHADER, vertexShader));
+    GLCall(unsigned int fs = CompileShader(GL_FRAGMENT_SHADER, fragmentShader));
 
     GLCall(glAttachShader(program, vs));
     GLCall(glAttachShader(program, fs));
